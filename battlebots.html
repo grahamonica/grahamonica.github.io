@@ -6,8 +6,40 @@
     <title>Battlebots Project</title>
 </head>
 <body>
-    <h1>Battlebots</h1>
-    <p>my Battlebots projects </p>
-    <a href="index.html">Back to Portfolio</a>
+    <a href="index.html" style="position: absolute; top: 10px; left: 10px;">Back to Portfolio</a>
+    
+    <h1>Combat Robotics</h1>
+    <video width="600" controls>
+        <source src="CHONKIV.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h2>Awards</h2>
+    <p>30 lb National Champion (February 2025 NHRL, April 2024 NHRL), 2nd place 2024 World Champion, currently the highest ranked 30 lb combat robot (as of February 2025)</p>
+    
+    <h2>Machining Experience</h2>
+    <img src="anglegrinding.jpg" alt="Machining Experience" width="600">
+    <p>I joined RoboJackets during the third iteration of Chonkiv. Although it is currently the highest ranked combat robot in the 30 lb category, when I joined it was a...</p>
+    
+    <h2>Python Design Simulation</h2>
+    <p>Recently I created a Python simulation to optimize shuffler parameters for a new robot that we are releasing in April. This runs a shuffler simulation that I use to optimize the drive system for my robots. Everyone else is welcome to use this to optimize their robots, but please give credit if you do.</p>
+    <p>A shuffler system uses offset cams so the robot will "walk" instead of roll.</p>
+    
+    <h3>Simulation vs Real-world Example</h3>
+    <img width="410" src="https://github.com/user-attachments/assets/c772c5df-d358-4c97-9111-1db1c8cc2e6f" alt="Shuffler Simulation">
+    <img width="410" src="https://github.com/user-attachments/assets/88223700-fda4-4477-84cd-d11f242d5551" alt="Real-world Shuffler">
+    
+    <h3>Simulation Parameters</h3>
+    <img width="1263" src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd" alt="Simulation Parameters">
+    
+    <p>The system returns the lowest point variance and 360-degree stepover.</p>
+    <ul>
+        <li><strong>Lowest point variance:</strong> Measures the vibration of the robot by calculating how much the robot "bounces" as it walks.</li>
+        <li><strong>360-degree stepover:</strong> The distance that the robot travels per 360-degree rotation of the camshaft. This determines the robot's speed and the necessary motor torque to operate.</li>
+    </ul>
+    <img width="208" src="https://github.com/user-attachments/assets/02477fe7-e13d-4443-be31-a3dcd2d3d19c" alt="Stepover Calculation">
+    
+    <h2>Design for Manufacturing</h2>
+    <p>I also learned how to design components to be manufactured, tolerancing based on the type of machining.</p>
 </body>
 </html>
