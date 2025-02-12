@@ -3,11 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battlebots Project</title>
+    <title>Have Your Cake</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .back-link, .github-link {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .readme-container {
+            background: #eef2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+            max-height: 600px;
+        }
+        .readme-container h1, .readme-container h2, .readme-container h3 {
+            color: #333;
+        }
+        .readme-container img {
+            display: block;
+            margin: 10px auto;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Have Your Cake</h1>
-    <p>Have Your Cake app stuff here</p>
-    <a href="index.html">Back to Portfolio</a>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-link">Back to Portfolio</a>
+            <a href="https://github.com/grahamonica/Open-Source-Version-of-My-iOS-App" class="github-link" target="_blank">View on GitHub</a>
+        </div>
+        <hr>
+        <h1>Have Your Cake</h1>
+        <div class="readme-container">
+            <h1>🍰 HaveYourCake</h1>
+            <p>Hi! Welcome to <strong>HaveYourCake</strong>, where you can have your cake—and eat it too! 🎂</p>
+            
+            <h2>About the App</h2>
+            <p>This fun list-making app lets you:</p>
+            <ul>
+                <li>Create lists that appear as <strong>slices of cake</strong> in a <strong>pie chart</strong></li>
+                <li>Search through your existing lists</li>
+                <li>Add and edit lists, each styled to look like a slice of cake!</li>
+            </ul>
+            
+            <h2>Architecture and Third Party Integration</h2>
+            <p>I built <strong>HaveYourCake</strong> using the <strong>Model-View-ViewModel (MVVM) architecture</strong> to ensure a <strong>modular and scalable</strong> structure that’s easy to update.</p>
+            <p>The app utilizes <strong>Firebase</strong> for:</p>
+            <ul>
+                <li><strong>Data storage</strong></li>
+                <li><strong>User authentication</strong> (Sign in with <strong>Apple, Google, Username</strong>, or continue as a <strong>guest</strong>)</li>
+            </ul>
+            <p>The app utilizes <strong>SendGrid</strong> for:</p>
+            <ul>
+                <li><strong>Implementing the form on the Contact Us page</strong></li>
+            </ul>
+            
+            <h2>Status</h2>
+            <p>Right now, I’m holding off on publishing while I complete the <strong>custom UI art</strong>. In the meantime, I’ve attached <strong>screenshots</strong> where I used <strong>AI-generated placeholder art</strong> for testing.</p>
+            
+            <img src="https://github.com/user-attachments/assets/b3431829-8bc1-4bda-bfb1-3abee14cc503" width="300">
+            <img src="https://github.com/user-attachments/assets/a6bb1122-78bd-46ad-b3b4-6d88627af177" width="300">
+            <img src="https://github.com/user-attachments/assets/7be1e2e9-63f2-426f-84a8-c044a8e195c4" width="300">
+            <img src="https://github.com/user-attachments/assets/ed4d9321-d749-4187-bd29-17c3b5bdd682" width="300">
+            <img src="https://github.com/user-attachments/assets/7cc24bfd-a088-433f-a3a5-18cbde13132b" width="300">
+            <img src="https://github.com/user-attachments/assets/b10f0447-b950-49a8-877a-a95cc907f8f3" width="300">
+            <img src="https://github.com/user-attachments/assets/796713db-6384-41a6-9fa2-8c87d33b9859" width="300">
+            <img src="https://github.com/user-attachments/assets/3d0f0524-13b7-4ca7-b2a0-cb97c5ff7a04" width="300">
+        </div>
+    </div>
 </body>
 </html>
