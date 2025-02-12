@@ -1,2 +1,0 @@
-# grahamonica.github.io
-Portfolio
