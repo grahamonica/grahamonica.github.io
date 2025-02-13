@@ -4,49 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tactile Vision</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-            padding: 0;
-        }
-        h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-        }
-        iframe {
-            width: 90%;
-            height: 80vh;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            font-size: 1.2em;
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the shared stylesheet -->
 </head>
 <body>
-    <h1>Tactile Vision</h1>
-    <p>Details about my TV project go here.</p>
+    <header>
+        <a href="index.html" class="back-link">Back to Portfolio</a>
+        <h1>Tactile Vision</h1>
+    </header>
     
-    <!-- Embedded Devpost project -->
-    <iframe src="https://devpost.com/software/tactilevision" allowfullscreen></iframe>
+    <main class="content">
+        <section class="info-section">
+            <h2>Hackathon Winning Iteration 1</h2>
+            <p>See link here for more info: <a href="https://devpost.com/software/tactilevision#updates" target="_blank" class="accent-link">Devpost Project</a></p>
+            <p>I led a team of four to design this:</p>
+            <h3>Inspiration</h3>
+            <p>One of our close friends has a disability that requires her to have a service dog. Seeing this showed us how difficult it can be for those who need service dogs to have one. This can be due to the prohibitive cost, allergies, or simply the inability to adequately care for a service animal. With our device, TactileVision, we aim to remove those obstacles to getting mobility assistance for the visually impaired.</p>
+            <h3>What it does</h3>
+            <p>TactileVision takes in data through sensors on a headset and produces a sort of “heatmap” on a small handheld device that heats up in locations that contain an obstacle. The custom-made, size-adjustable headset is equipped with 6 evenly spaced ultrasonic sensors. These sensors detect how far away objects are. The ultrasonic sensors are connected to a Raspberry Pi Pico W (affectionately nicknamed megamind) that sits on top of the user's head. This Raspberry Pi connects to a second, identical Raspberry Pi via Bluetooth. The second Raspberry Pi controls a small handheld device that displays where objects are around a person. As shown in the image of our custom circuit board titled “Side 1”, there are six rays of resistors that extend out from the center of the circuit board. The center of the board corresponds with where the user is located. As the user nears a wall or other object, current is conducted through resistors in the direction on the board that corresponds with the direction that the wall is in relation to the user. This way the resistors heat up in the direction of the object near the user. As the user nears an object, the resistors along the ray in that direction are heated up more closely to the center of the circuit board. This tells the user which direction an obstacle is in and how far away it is (the closest resistor signifies that the obstacle is 0-2 ft away, the second closest resistor signifies that the obstacle is 2-4 feet away, the third signifies 4-7 ft away, the fourth signifies 7-10 ft, and the fifth signifies 10-13ft). A max of one resistor or heat output will be on in each ray at any given time. If there is no object within 13 feet in the direction of that ray, then none of the heat outputs will be on. Please note that although we had some functionality during testing, we ultimately did not have a fully functional prototype due to defects in the PCB etching process.</p>
+            <h3>How we built it</h3>
+            <p>First, we brainstormed, assessed, and planned out different designs and devices that could provide mobility assistance to those with visual impairments. Once we settled on TactileVision, we designed a headset using SolidWorks and planned a custom circuit board on KiCAD. Then we 3D printed the headset (using a flexible TPU filament) and printed the circuit board on a PCB (printable circuit board) laser and mill. Once the circuit board was printed, we soldered on about 100 transistors, resistors, and other components. Then, we used Python to program controllers to read data that our sensors were inputting, transmit data between the controllers using Bluetooth between the headset to the handheld map, and output the correct signals through the map so that a user can feel where obstacles are located. Please note that although we had some functionality during testing, we ultimately did not have a fully functional prototype due to defects in the PCB etching process.</p>
+            <h3>Challenges we ran into</h3>
+            <p>Throughout this project, we faced numerous unexpected difficulties: the PCB laser cutter was not cutting through the copper layer and had to be troubleshooted, the bugs in the Python code felt insurmountable at times, and we did not have enough ultrasonic sensors to complete the project, and more. Despite being faced with challenges that seemed impossible at various points, the team tackled each obstacle with resilience; Dan researched and fixed the PCB machine, Justin spent hours meticulously pouring over the code to resolve each error, and Monica reached out to GT Opportunists (a Georgia Tech group chat with over 3000 members) and found people who had extra ultrasonic sensors that we could borrow. Each setback that the team encountered was met with an even stronger drive to succeed.</p>
+            <h3>Accomplishments that we're proud of</h3>
+            <p>Team TactileVision was a success; we learned a lot, worked well as a team, and created a prototype that we are proud of. Each of us can say that we gained new skills and experience from this challenge. We encountered many difficulties and unforeseen challenges, and we are proud of the way that we tackled every new obstacle with grit and willpower. Most of all, we are proud of how we came together from different majors, backgrounds, and experience levels, and, joined by a common sense of determination, created a project that we are excited to call our own.</p>
+            <h3>What we learned</h3>
+            <p>We gained and refined numerous skills during our time at HackGTX. We gathered more experience using SolidWorks, KiCAD, Python, and GitHub, as well as many fabrication skills. Each team member had different and unique strengths that they were able to contribute to this project, and by working together, we were able to gain valuable experience in areas where one or more of us was new to, from the others who were experts in that topic.</p>
+        </section>
 
-    <br>
-    <a href="index.html" class="back-link">Back to Portfolio</a>
+        <section class="info-section">
+            <h2>Current Progress on Iteration 2</h2>
+            <p>CAD model here.</p>
+            <p>Currently using the depth API from the MetaQuest 3 to test the latest handset. The latest prototype uses capacitive touch to sense when a person's hand is on the sensors. This is important because the hand acts as a heat sink, and so when the hand is removed, a resistor could heat up to dangerous temperatures if power is going through it. With our capacitive touch sensing, the resistors will only be turned on (to safe levels) when a hand is detected above that specific sensor.</p>
+        </section>
+
+        <!-- Embedded Devpost Project -->
+        <section class="info-section">
+            <h2>Devpost Project</h2>
+            <iframe class="responsive-pdf" src="https://devpost.com/software/tactilevision"></iframe>
+        </section>
+    </main>
 </body>
 </html>

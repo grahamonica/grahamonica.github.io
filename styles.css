@@ -109,3 +109,71 @@ ul li {
         max-width: 100%;
     }
 }
+/* Add these styles to your existing styles.css */
+
+/* PDF Embed Styling */
+.responsive-pdf {
+    width: 100%;
+    height: 80vh; /* Adjust height as needed */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Ensure the info-section has consistent padding and spacing */
+.info-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff; /* White background for sections */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Center text in the info-section */
+.info-section p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+}
+
+/* Header adjustments for consistency */
+header {
+    background-color: #333; /* Dark grey */
+    color: #fff; /* White text */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.back-link {
+    color: #d9534f; /* Muted red accent */
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .responsive-pdf {
+        height: 60vh; /* Adjust height for smaller screens */
+    }
+
+    .back-link {
+        position: static;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
