@@ -1,13 +1,158 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Cream background */
-    color: #333; /* Dark grey text */
+    color: #221f1f; /* Dark text */
     line-height: 1.6;
+    background-color: #f5f1e9; /* Cream background */
+    background-image: url('images/tesselate2.png'); /* Use tesselate2.png as background */
+    background-repeat: repeat; /* Repeat the image */
+    background-size: 200px; /* Adjust the size of the tiled image */
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #fcfbfa; /* Light background for content */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Section */
+.profile-section {
+    display: flex;
+    align-items: stretch; /* Ensure profile picture and bio container are the same height */
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.profile-picture img {
+    width: 250px; /* Fixed width for profile picture */
+    height: 100%; /* Match the height of the bio container */
+    object-fit: cover;
+    border: 4px solid #902b20; /* Accent color border */
+}
+
+.profile-content {
+    flex: 1;
+}
+
+.bio-background {
+    padding: 30px;
+    background-color: #fcfbfa; /* Light background for bio */
+    border-radius: 12px;
+    border-left: 6px solid #902b20; /* Accent color border */
+}
+
+.profile-content h1 {
+    font-size: 2.5rem;
+    color: #221f1f; /* Dark text */
+    margin-bottom: 10px;
+}
+
+.bio {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #221f1f; /* Dark text */
+    margin-bottom: 20px;
+}
+
+.profile-links {
+    display: flex;
+    gap: 15px;
+}
+
+.link-button {
+    padding: 10px 20px;
+    background-color: #902b20; /* Accent color */
+    color: #fcfbfa; /* Light text */
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.link-button:hover {
+    background-color: #7a241b; /* Darker accent color */
+    transform: translateY(-2px);
+}
+
+/* Projects Section */
+h2 {
+    font-size: 2rem;
+    color: #902b20; /* Accent color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #221f1f; /* Dark text */
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.grid-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.grid-item span {
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .profile-picture img {
+        width: 100%;
+        height: auto;
+        max-width: 250px;
+    }
+
+    .profile-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        padding: 20px 10px;
+    }
+}
+
+/* Existing Styles for Other Pages */
 header {
     background-color: #333; /* Dark grey */
     color: #fff; /* White text */
@@ -109,7 +254,6 @@ ul li {
         max-width: 100%;
     }
 }
-/* Add these styles to your existing styles.css */
 
 /* PDF Embed Styling */
 .responsive-pdf {
@@ -119,61 +263,4 @@ ul li {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-}
-
-/* Ensure the info-section has consistent padding and spacing */
-.info-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: #fff; /* White background for sections */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Center text in the info-section */
-.info-section p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-}
-
-/* Header adjustments for consistency */
-header {
-    background-color: #333; /* Dark grey */
-    color: #fff; /* White text */
-    padding: 20px;
-    text-align: center;
-    position: relative;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-}
-
-.back-link {
-    color: #d9534f; /* Muted red accent */
-    text-decoration: none;
-    font-weight: bold;
-    position: absolute;
-    left: 20px;
-    top: 20px;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .responsive-pdf {
-        height: 60vh; /* Adjust height for smaller screens */
-    }
-
-    .back-link {
-        position: static;
-        display: block;
-        text-align: center;
-        margin-bottom: 10px;
-    }
 }
