@@ -1,26 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Material Analysis</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the shared stylesheet -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material Analysis</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* Page-Specific Styles */
+    body {
+      background-color: #f5f1e9; /* Cream background */
+      color: #221f1f; /* Dark text */
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fcfbfa; /* Light cream for content */
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Spacing between buttons */
+      margin-bottom: 20px;
+    }
+
+    .back-link,
+    .github-link {
+      text-decoration: none;
+      color: #902b20; /* Accent color */
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .back-link:hover,
+    .github-link:hover {
+      color: #7a241b; /* Darker accent color */
+    }
+
+    .bio {
+      background: #f5f1e9; /* Cream background */
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .readme-container {
+      background: #f5f1e9; /* Cream background */
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      /* Removed overflow and max-height so the container scales with its content */
+    }
+
+    .readme-container h1,
+    .readme-container h2,
+    .readme-container h3 {
+      color: #221f1f; /* Dark text */
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+      gap: 15px; /* Space between images */
+      margin-top: 20px;
+    }
+
+    .screenshot-grid img {
+      width: 100%; /* Ensure images fill their grid cells */
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .readme-container ul {
+      padding-left: 20px;
+    }
+
+    .readme-container ul li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
 </head>
 <body>
-    <header>
-        <a href="index.html" class="back-link">Back to Portfolio</a>
-        <h1>Material Analysis</h1>
-    </header>
-    
-    <main class="content">
-        <section class="info-section">
-            <p>This document presents an in-depth material analysis for our project, outlining the methodology, findings, and conclusions drawn from our research.</p>
-        </section>
+  <div class="container">
+     <!-- Header -->
+<div style="
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1rem;
+">
+<a href="index.html" style="text-decoration: none; color: #902b20;">
+  Back to Portfolio
+</a>
+</div>
+<hr />
 
-        <!-- Embedded PDF -->
-        <section class="info-section">
-            <iframe class="responsive-pdf" src="ME%204790%20Final%20Project-5.pdf"></iframe>
-        </section>
-    </main>
+    <!-- Title -->
+    <h1>Material Analysis</h1>
+
+    <!-- Short Bio -->
+    <div class="bio">
+      <p>
+        I attached a materials science analysis that I created to optimize material
+        selection for a surfboard; a problem with multiple objectives and multiple
+        constraints. I used Ansys Granta to assess a wide range of options including
+        custom composites and hybrids of layered materials. This paper was for ME 4790,
+        an upper level material science elective.
+      </p>
+    </div>
+
+    <!-- Embedded PDF -->
+    <div>
+      <iframe class="responsive-pdf" src="ME%204790%20Final%20Project-5.pdf"></iframe>
+    </div>
+  </div>
 </body>
 </html>
