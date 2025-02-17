@@ -12,20 +12,20 @@
   <style>
     /* Page-Specific Styles */
     body {
-      background-color: #f5f1e9; /* Cream background */
-      color: #221f1f; /* Dark text */
+      background-color: #a1a2aa; /* New background color */
+      color: #2a2a2f; /* Dark text for legibility */
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 20px;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 85%; /* Adjusted width */
       margin: auto;
-      background: #fcfbfa; /* Light cream for content */
+      background: #efede7; /* Soft muted blue */
       padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(43, 78, 140, 0.15); /* Subtle blue-ish shadow */
     }
 
     .header {
@@ -38,39 +38,38 @@
     .back-link,
     .github-link {
       text-decoration: none;
-      color: #902b20; /* Accent color */
+      color: #2B4E8C; /* Muted darker blue */
       font-weight: 500;
       transition: color 0.3s ease;
     }
 
     .back-link:hover,
     .github-link:hover {
-      color: #7a241b; /* Darker accent color */
+      color: #1C3B6E; /* Darker hover state */
     }
 
     .bio {
-      background: #f5f1e9; /* Cream background */
+      background: #d8dae0; /* Slightly darker container for contrast */
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
       font-size: 1.1rem;
       line-height: 1.6;
     }
 
     .readme-container {
-      background: #f5f1e9; /* Cream background */
+      background-color: #d8dae0; /* Same darker background as .bio */
       padding: 20px;
       border-radius: 12px;
       margin-bottom: 20px;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-      /* Removed overflow and max-height so the container scales with its content */
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
     .readme-container h1,
     .readme-container h2,
     .readme-container h3 {
-      color: #221f1f; /* Dark text */
+      color: #221f1f; /* Dark text for headings */
     }
 
     .screenshot-grid {
@@ -93,13 +92,34 @@
     .readme-container ul li {
       margin-bottom: 10px;
     }
+
+    /* Machining Experience Image */
+    .machining-experience {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Space between image and text */
+    }
+
+    .machining-experience img {
+      width: 40%; /* Smaller image */
+      height: auto;
+      border-radius: 8px;
+    }
+    
+    /* Responsive video styling for Chonkiv video */
+    .responsive-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Header -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-      <a href="index.html" style="text-decoration: none; color: #902b20;">Back to Portfolio</a>
+    <div class="header">
+      <a href="index.html" class="back-link">Back to Portfolio</a>
     </div>
     <hr />
 
@@ -111,10 +131,7 @@
       <p>
         This project showcases my work in Combat Robotics, where I designed and built a competitive battlebot. The project highlights various achievements, machining techniques, and simulation studies that contributed to the robot's success.
       </p>
-    </div>
-
-    <!-- Video Section -->
-    <div class="readme-container">
+      <!-- Chonkiv video placed under the text, centered and full width -->
       <iframe class="responsive-video" src="https://www.youtube.com/embed/1VQxfCXqNVk" frameborder="0" allowfullscreen></iframe>
     </div>
 
@@ -129,36 +146,37 @@
     <!-- Machining Experience Section -->
     <div class="readme-container">
       <h2>Machining Experience</h2>
-      <img class="responsive-img" src="images/anglegrinding.jpg" alt="Machining Experience">
-      <p>
-        I joined RoboJackets during the third iteration of Chonkiv. Although the early version struggled in competition, I learned essential skills—including lathe work, waterjet cutting, manual milling, and the use of various hand tools—to refine and improve the design.
-      </p>
+      <div class="machining-experience">
+        <img src="images/anglegrinding.jpg" alt="Machining Experience">
+        <p>
+          I joined RoboJackets during the third iteration of Chonkiv. Although the early version struggled in competition, I learned essential skills—including lathe work, waterjet cutting, manual milling, and the use of various hand tools—to refine and improve the design.
+        </p>
+      </div>
     </div>
 
     <!-- Python Design Simulation Section -->
     <div class="readme-container">
-      <h2>Python Design Simulation</h2>
+      <h2>Python Design Simulation <a href="https://github.com/grahamonica/Shuffler-simulation" class="github-link" target="_blank"> (Link to the Github)</a></h2>
       <p>
         I developed a Python simulation to optimize shuffler parameters for a new robot launching in April. This simulation is instrumental in fine-tuning the drive system, ensuring optimal performance.
       </p>
       <p>
         The shuffler system uses offset cams so the robot "walks" instead of rolling.
       </p>
-    </div>
-
-    <!-- Simulation vs Real-world Example Section -->
-    <div class="readme-container">
-      <h3>My Simulation vs Real-world Example</h3>
+      <h3>
+        My Simulation vs Real-world Example 
+      </h3>
       <div class="screenshot-grid">
-        <img class="responsive-img" src="https://github.com/user-attachments/assets/c772c5df-d358-4c97-9111-1db1c8cc2e6f" alt="Shuffler Simulation">
-        <img class="responsive-img" src="https://github.com/user-attachments/assets/88223700-fda4-4477-84cd-d11f242d5551" alt="Real-world Shuffler">
+        <img src="https://github.com/user-attachments/assets/c772c5df-d358-4c97-9111-1db1c8cc2e6f" alt="Shuffler Simulation">
+        <img src="https://github.com/user-attachments/assets/88223700-fda4-4477-84cd-d11f242d5551" alt="Real-world Shuffler">
       </div>
-    </div>
-
-    <!-- Simulation Parameters Section -->
-    <div class="readme-container">
       <h3>Simulation Parameters</h3>
-      <img class="responsive-img" src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd" alt="Simulation Parameters">
+      <img
+        class="responsive-img"
+        style="width: 80%; display: block; margin: 0 auto;"
+        src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd"
+        alt="Simulation Parameters"
+      >
       <p>
         The simulation outputs include the lowest point variance and the 360-degree stepover.
       </p>

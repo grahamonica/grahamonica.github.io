@@ -1,25 +1,20 @@
 /* General Styles */
 body {
+    background-color: #a1a2aa;
+    color: #2a2a2f;           /* Dark text for legibility */
     font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #221f1f; /* Dark text */
-    line-height: 1.6;
-    background-color: #f5f1e9; /* Cream background */
-    background-image: url('images/tesselate2.png'); /* Use tesselate2.png as background */
-    background-repeat: repeat; /* Repeat the image */
-    background-size: 200px; /* Adjust the size of the tiled image */
-}
+    margin-top: 50px;
+    padding: 20px;
+  }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    background-color: #fcfbfa; /* Light background for content */
+  .container {
+    max-width: 85%;
+    margin: auto;
+    background: #efede7; /* Soft muted blue */
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 4px 20px rgba(43, 78, 140, 0.15); /* Subtle blue-ish shadow */
+  }
 
 /* Profile Section */
 .profile-section {
@@ -33,7 +28,7 @@ body {
     width: 250px; /* Fixed width for profile picture */
     height: 100%; /* Match the height of the bio container */
     object-fit: cover;
-    border: 4px solid #902b20; /* Accent color border */
+    border: .5px solid #1C3B6E; /* Accent color border */
 }
 
 .profile-content {
@@ -42,9 +37,8 @@ body {
 
 .bio-background {
     padding: 30px;
-    background-color: #fcfbfa; /* Light background for bio */
+    background-color: #d8dae0; /* Light background for bio */
     border-radius: 12px;
-    border-left: 6px solid #902b20; /* Accent color border */
 }
 
 .profile-content h1 {
@@ -67,7 +61,7 @@ body {
 
 .link-button {
     padding: 10px 20px;
-    background-color: #902b20; /* Accent color */
+    background-color: #2B4E8C; /* Accent color */
     color: #fcfbfa; /* Light text */
     text-decoration: none;
     border-radius: 6px;
@@ -76,14 +70,14 @@ body {
 }
 
 .link-button:hover {
-    background-color: #7a241b; /* Darker accent color */
+    background-color: #1C3B6E; /* Darker accent color */
     transform: translateY(-2px);
 }
 
 /* Projects Section */
 h2 {
     font-size: 2rem;
-    color: #902b20; /* Accent color */
+    color: #1C3B6E; /* Accent color */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -258,7 +252,6 @@ ul li {
 /* PDF Embed Styling */
 .responsive-pdf {
     width: 100%;
-    height: 80vh; /* Adjust height as needed */
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
