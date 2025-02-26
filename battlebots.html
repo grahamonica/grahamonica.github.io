@@ -11,23 +11,6 @@
   />
   <style>
     /* Page-Specific Styles */
-    body {
-      background-color: #a1a2aa; /* New background color */
-      color: #2a2a2f; /* Dark text for legibility */
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    .container {
-      max-width: 85%; /* Adjusted width */
-      margin: auto;
-      background: #efede7; /* Soft muted blue */
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(43, 78, 140, 0.15); /* Subtle blue-ish shadow */
-    }
-
     .header {
       display: flex;
       align-items: center;
@@ -105,42 +88,33 @@
       height: auto;
       border-radius: 8px;
     }
-    
-    /* Responsive video styling for Chonkiv video */
-    .responsive-video {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
+
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <a href="index.html" class="back-link">Back to Portfolio</a>
+      <a href="index.html" class="github-link">Back to Portfolio</a>
     </div>
     <hr />
 
     <!-- Title -->
     <h1>Combat Robotics</h1>
-
+ <!-- Awards Section -->
+ <div class="readme-container">
+  <h2>Awards</h2>
+  <p>- 30 lb National Champion (February 2025 NHRL, April 2024 NHRL)</p>
+  <p>- 2nd place 2024 30 lb World Championships</p>
+  <p>- Highest ranked 30 lb combat robot (as of February 2025)</p>
+</div>
     <!-- Short Bio -->
     <div class="bio">
+       <!-- Chonkiv video placed under the text, centered and full width -->
       <p>
         This project showcases my work in Combat Robotics, where I designed and built a competitive battlebot. The project highlights various achievements, machining techniques, and simulation studies that contributed to the robot's success.
       </p>
-      <!-- Chonkiv video placed under the text, centered and full width -->
-      <iframe class="responsive-video" src="https://www.youtube.com/embed/1VQxfCXqNVk" frameborder="0" allowfullscreen></iframe>
-    </div>
-
-    <!-- Awards Section -->
-    <div class="readme-container">
-      <h2>Awards</h2>
-      <p>- 30 lb National Champion (February 2025 NHRL, April 2024 NHRL)</p>
-      <p>- 2nd place 2024 30 lb World Championships</p>
-      <p>- Highest ranked 30 lb combat robot (as of February 2025)</p>
+      <iframe class="responsive-video" src="https://www.youtube.com/embed/1VQxfCXqNVk"centered allowfullscreen></iframe>
     </div>
 
     <!-- Machining Experience Section -->
@@ -149,7 +123,7 @@
       <div class="machining-experience">
         <img src="images/anglegrinding.jpg" alt="Machining Experience">
         <p>
-          I joined RoboJackets during the third iteration of Chonkiv. Although the early version struggled in competition, I learned essential skills—including lathe work, waterjet cutting, manual milling, and the use of various hand tools—to refine and improve the design.
+          I joined RoboJackets during the third iteration of Chonkiv. Although the early version struggled in competition, I learned essential skills—including lathe work, waterjet cutting, manual milling, and the use of various hand tools—to refine and improve the design. The image at left shows me angle grinding one of our robot's "teeth" in between matches at April 2024 NHRL. This is to resharpen our weapon after it was dulled from hitting our opponent during its prior fight.
         </p>
       </div>
     </div>
@@ -158,7 +132,7 @@
     <div class="readme-container">
       <h2>Python Design Simulation <a href="https://github.com/grahamonica/Shuffler-simulation" class="github-link" target="_blank"> (Link to the Github)</a></h2>
       <p>
-        I developed a Python simulation to optimize shuffler parameters for a new robot launching in April. This simulation is instrumental in fine-tuning the drive system, ensuring optimal performance.
+        I developed a Python simulation to optimize shuffler parameters for a new robot that will be competing for the first time in April. This simulation is instrumental in fine-tuning the drive system, ensuring optimal performance. By indentifying the stepover of the robot, we can calculate the robot's speed. By identifying the lowest point variance, we can identify how much the robot will "bounce" as it shuffles. In general, it is optimal to have a robot that has a high stepover (speed), and low lowest point varience because this ensures that the robot is more stable and will stay planted in the arena better during weapon hits.
       </p>
       <p>
         The shuffler system uses offset cams so the robot "walks" instead of rolling.

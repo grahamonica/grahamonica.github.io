@@ -10,25 +10,6 @@
     rel="stylesheet"
   />
   <style>
-   body {
-     background-color: #a1a2aa;
-     color: #2a2a2f;           /* Dark text for legibility */
-     font-family: 'Inter', sans-serif;
-     margin-top: 50px;
-     padding: 20px;
-   }
-
-
-   .container {
-     max-width: 85%;
-     margin: auto;
-     background: #efede7; /* Soft muted blue */
-     padding: 30px;
-     border-radius: 12px;
-     box-shadow: 0 4px 20px rgba(43, 78, 140, 0.15); /* Subtle blue-ish shadow */
-   }
-
-
    .header {
      display: flex;
      align-items: center;
@@ -47,7 +28,6 @@
      color: #1C3B6E; /* Darker hover state */
    }
 
-
    /* Bio Section: slightly darker container for contrast */
    .bio {
      background: #d8dae0;
@@ -59,7 +39,6 @@
      line-height: 1.6;
    }
 
-
    /* README Container: same darker background as .bio for consistency */
    .readme-container {
      background-color: #d8dae0;
@@ -67,7 +46,6 @@
      border-radius: 12px;
      margin-bottom: 20px;
      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-     /* Removed overflow and max-height so the container scales with its content */
    }
    .readme-container h1,
    .readme-container h2,
@@ -94,29 +72,60 @@
     .readme-container ul li {
       margin-bottom: 10px;
     }
+
+    /* Tab Styles */
+    .tab-container {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #d8dae0;
+      border-radius: 8px 8px 0 0;
+      margin-right: 5px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab.active {
+      background-color: #efede7;
+    }
+
+    .tab-content {
+      display: none;
+      background-color: #efede7;
+      padding: 20px;
+      border-radius: 0 8px 8px 8px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- Header -->
-<div style="
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 1rem;
-">
-<a href="index.html" class="back-link">
-  Back to Portfolio
-</a>
-<a 
-  href="https://devpost.com/software/tactilevision#updates"
-  class="github-link"
-  target="_blank"
->
-  View Project on Devpost
-</a>
-</div>
-<hr />
+    <div style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    ">
+    <a href="index.html" class="github-link">
+      Back to Portfolio
+    </a>
+    <a 
+      href="https://devpost.com/software/tactilevision#updates"
+      class="github-link"
+      target="_blank"
+    >
+      View Project on Devpost
+    </a>
+    </div>
+    <hr />
 
     <!-- Title -->
     <h1>Tactile Vision</h1>
@@ -128,15 +137,22 @@ margin-bottom: 1rem;
       </p>
     </div>
 
-    <!-- Project Details -->
-    <div class="readme-container">
+    <!-- Tab Container -->
+    <div class="tab-container">
+      <div class="tab active" onclick="switchTab('tab1')">Hackathon Winning Iteration 1</div>
+      <div class="tab" onclick="switchTab('tab2')">Current Progress on Iteration 2</div>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="tab1" class="tab-content active">
       <h2>Hackathon Winning Iteration 1</h2>
-      <p>
-      </p>
+      <p></p>
       <p>I led a team of four to design this:</p>
+      <img src="images/wearingmegamindpmg.png", width = 40% >
+      <img src="images/Side1.jpg", width = 50% >
       <h3>Inspiration</h3>
       <p>
-        One of our close friends has a disability that requires her to have a service dog. This experience highlighted the challenges—be it cost, allergies, or the ability to care for a service animal—that prevent many from obtaining necessary mobility assistance. With Tactile Vision, we aim to eliminate those obstacles.
+        One of my friends has a disability that requires her to have a service dog. This experience highlighted the challenges—be it cost, allergies, or the ability to care for a service animal—that prevent many from obtaining necessary mobility assistance. With Tactile Vision, we aim to eliminate those obstacles.
       </p>
       <h3>What it does</h3>
       <p>
@@ -160,8 +176,7 @@ margin-bottom: 1rem;
       </p>
     </div>
 
-    <!-- Current Progress -->
-    <div class="readme-container">
+    <div id="tab2" class="tab-content">
       <h2>Current Progress on Iteration 2</h2>
       <p>CAD model here.</p>
       <p>
@@ -169,5 +184,23 @@ margin-bottom: 1rem;
       </p>
     </div>
   </div>
+
+  <script>
+    function switchTab(tabName) {
+      // Hide all tab content
+      document.querySelectorAll('.tab-content').forEach(tabContent => {
+        tabContent.classList.remove('active');
+      });
+
+      // Show the selected tab content
+      document.getElementById(tabName).classList.add('active');
+
+      // Update tab styles
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
