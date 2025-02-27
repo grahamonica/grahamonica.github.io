@@ -46,7 +46,7 @@
             flex-direction: column;
             align-items: center;
             text-decoration: none;
-            background: #f5f3ef;
+            background: white;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -74,12 +74,15 @@
             gap: 30px;
             flex-wrap: nowrap;
         }
+        .profile-picture {
+            flex-shrink: 0;
+        }
         .profile-picture img {
-            width: 225px;
-            height: 225px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
-            object-fit: crop;
-            
+            object-fit: cover;
+            display: block;
             border: 2px solid #1C3B6E;
         }
         .bio-background {
@@ -87,8 +90,7 @@
             background-color: #d8dae0;
             border-radius: 12px;
             flex-grow: 1;
-            max-width: calc(100% - 300px);
-            min-width: 250px;
+            max-width: 100%;
         }
         .bio-background h1 {
             font-size: 2.5rem;
@@ -105,14 +107,17 @@
         }
         @media (max-width: 768px) {
             .profile-section {
-
+                flex-direction: column;
                 align-items: center;
             }
             .bio-background {
                 max-width: 100%;
                 text-align: center;
             }
-
+            .profile-picture img {
+                width: 150px;
+                height: 150px;
+            }
             .bio-background h1 {
                 font-size: 2rem;
             }
