@@ -89,6 +89,52 @@
       border-radius: 8px;
     }
 
+    /* Tab Styles */
+    .tab-container {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #d8dae0;
+      border-radius: 8px 8px 0 0;
+      margin-right: 5px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab.active {
+      background-color: #efede7;
+    }
+
+    .tab-content {
+      display: none;
+      background-color: #efede7;
+      padding: 20px;
+      border-radius: 0 8px 8px 8px;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+    .bio-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .bio-text {
+            flex: 1;
+        }
+        .bio-video {
+            flex: 2;
+        }
+        .bio-video iframe {
+            width: 100%;
+            height: auto * 1.1;
+        }
   </style>
 </head>
 <body>
@@ -101,73 +147,104 @@
 
     <!-- Title -->
     <h1>Combat Robotics</h1>
- <!-- Awards Section -->
- <div class="readme-container">
-  <h2>Awards</h2>
-  <p>- 30 lb National Champion (February 2025 NHRL, April 2024 NHRL)</p>
-  <p>- 2nd place 2024 30 lb World Championships</p>
-  <p>- Highest ranked 30 lb combat robot (as of February 2025)</p>
-</div>
-    <!-- Short Bio -->
-    <div class="bio">
-       <!-- Chonkiv video placed under the text, centered and full width -->
-      <p>
-        This project showcases my work in Combat Robotics, where I designed and built a competitive battlebot. The project highlights various achievements, machining techniques, and simulation studies that contributed to the robot's success.
-      </p>
-      <iframe class="responsive-video" src="https://www.youtube.com/embed/1VQxfCXqNVk"centered allowfullscreen></iframe>
+
+    <!-- Awards Section -->
+    <div class="readme-container">
+      <h2>Awards</h2>
+      <p>- 30 lb National Champion (February 2025 NHRL, April 2024 NHRL)</p>
+      <p>- 2nd place 2024 30 lb World Championships</p>
+      <p>- Highest ranked 30 lb combat robot (as of February 2025)</p>
     </div>
 
-    <!-- Machining Experience Section -->
-    <div class="readme-container">
-      <h2>Machining Experience</h2>
-      <div class="machining-experience">
-        <img src="images/anglegrinding.jpg" alt="Machining Experience">
+    <!-- Short Bio -->
+    <div class="bio-container">
+      <div class="bio-text">
+          <p>This project showcases my work in Combat Robotics, where I designed and built a competitive battlebot. The project highlights various achievements, machining techniques, and simulation studies that contributed to the robot's success.</p>
+      </div>
+      <div class="bio-video">
+          <iframe class="responsive-video" src="https://www.youtube.com/embed/1VQxfCXqNVk" allowfullscreen></iframe>
+      </div>
+  </div>
+
+    <!-- Tab Container -->
+    <div class="tab-container">
+      <div class="tab active" onclick="switchTab('mechanical')">Mechanical Engineering</div>
+      <div class="tab" onclick="switchTab('software')">Software Engineering</div>
+    </div>
+
+    <!-- Mechanical Engineering Tab -->
+    <div id="mechanical" class="tab-content active">
+      <!-- Machining Experience Section -->
+      <div class="readme-container">
+        <h2>Machining Experience</h2>
+        <div class="machining-experience">
+          <img src="images/anglegrinding.jpg" alt="Machining Experience">
+          <p>
+            I joined RoboJackets during the third iteration of Chonkiv. Although the early version struggled in competition, I learned essential skills—including lathe work, waterjet cutting, manual milling, and the use of various hand tools—to refine and improve the design. The image at left shows me angle grinding one of our robot's "teeth" in between matches at April 2024 NHRL. This is to resharpen our weapon after it was dulled from hitting our opponent during its prior fight.
+          </p>
+        </div>
+      </div>
+
+      <!-- Design for Manufacturing Section -->
+      <div class="readme-container">
+        <h2>Prototyping and Designing for Manufacturing</h2>
         <p>
-          I joined RoboJackets during the third iteration of Chonkiv. Although the early version struggled in competition, I learned essential skills—including lathe work, waterjet cutting, manual milling, and the use of various hand tools—to refine and improve the design. The image at left shows me angle grinding one of our robot's "teeth" in between matches at April 2024 NHRL. This is to resharpen our weapon after it was dulled from hitting our opponent during its prior fight.
+          Throughout my time in Robojackets I learned how to rapidly prototype new ideas, and design them in a way that they can be easily manufactured. Recently, I worked with one other person to create an approximately 0.25x scale prototype of our next 18 lb robot, (major adjustments had to be made because some parts such as motors do not scale proportionately). In this project, I designed the chasis and armor system, and my teammate designed the weapon and shuffler system. To help him optimize the parameters for the shuffler design, I created a python simulation which is shown in the software engineering tab on this page. I also learned how to design components for manufacturability, including proper tolerancing and material selection based on the specific machining processes.
         </p>
       </div>
     </div>
 
-    <!-- Python Design Simulation Section -->
-    <div class="readme-container">
-      <h2>Python Design Simulation <a href="https://github.com/grahamonica/Shuffler-simulation" class="github-link" target="_blank"> (Link to the Github)</a></h2>
-      <p>
-        I developed a Python simulation to optimize shuffler parameters for a new robot that will be competing for the first time in April. This simulation is instrumental in fine-tuning the drive system, ensuring optimal performance. By indentifying the stepover of the robot, we can calculate the robot's speed. By identifying the lowest point variance, we can identify how much the robot will "bounce" as it shuffles. In general, it is optimal to have a robot that has a high stepover (speed), and low lowest point varience because this ensures that the robot is more stable and will stay planted in the arena better during weapon hits.
-      </p>
-      <p>
-        The shuffler system uses offset cams so the robot "walks" instead of rolling.
-      </p>
-      <h3>
-        My Simulation vs Real-world Example 
-      </h3>
-      <div class="screenshot-grid">
-        <img src="https://github.com/user-attachments/assets/c772c5df-d358-4c97-9111-1db1c8cc2e6f" alt="Shuffler Simulation">
-        <img src="https://github.com/user-attachments/assets/88223700-fda4-4477-84cd-d11f242d5551" alt="Real-world Shuffler">
+    <!-- Software Engineering Tab -->
+    <div id="software" class="tab-content">
+      <!-- Python Design Simulation Section -->
+      <div class="readme-container">
+        <h2>Python Design Simulation <a href="https://github.com/grahamonica/Shuffler-simulation" class="github-link" target="_blank"> (Link to the Github)</a></h2>
+        <p>
+          I developed a Python simulation to optimize shuffler parameters for a new robot that will be competing for the first time in April. This simulation is instrumental in fine-tuning the drive system, ensuring optimal performance. By identifying the stepover of the robot, we can calculate the robot's speed. By identifying the lowest point variance, we can identify how much the robot will "bounce" as it shuffles. In general, it is optimal to have a robot that has a high stepover (speed), and low lowest point variance because this ensures that the robot is more stable and will stay planted in the arena better during weapon hits.
+        </p>
+        <p>
+          The shuffler system uses offset cams so the robot "walks" instead of rolling.
+        </p>
+        <h3>My Simulation vs Real-world Example</h3>
+        <div class="screenshot-grid">
+          <img src="https://github.com/user-attachments/assets/c772c5df-d358-4c97-9111-1db1c8cc2e6f" alt="Shuffler Simulation">
+          <img src="https://github.com/user-attachments/assets/88223700-fda4-4477-84cd-d11f242d5551" alt="Real-world Shuffler">
+        </div>
+        <h3>Simulation Parameters</h3>
+        <img
+          class="responsive-img"
+          style="width: 80%; display: block; margin: 0 auto;"
+          src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd"
+          alt="Simulation Parameters"
+        >
+        <p>
+          The simulation outputs include the lowest point variance and the 360-degree stepover.
+        </p>
+        <ul>
+          <li><strong>Lowest point variance:</strong> Measures the robot’s vibration as it "walks."</li>
+          <li><strong>360-degree stepover:</strong> Indicates the distance traveled per full rotation of the camshaft, affecting speed and motor torque.</li>
+        </ul>
+        <img class="responsive-img" src="https://github.com/user-attachments/assets/02477fe7-e13d-4443-be31-a3dcd2d3d19c" alt="Stepover Calculation">
       </div>
-      <h3>Simulation Parameters</h3>
-      <img
-        class="responsive-img"
-        style="width: 80%; display: block; margin: 0 auto;"
-        src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd"
-        alt="Simulation Parameters"
-      >
-      <p>
-        The simulation outputs include the lowest point variance and the 360-degree stepover.
-      </p>
-      <ul>
-        <li><strong>Lowest point variance:</strong> Measures the robot’s vibration as it "walks."</li>
-        <li><strong>360-degree stepover:</strong> Indicates the distance traveled per full rotation of the camshaft, affecting speed and motor torque.</li>
-      </ul>
-      <img class="responsive-img" src="https://github.com/user-attachments/assets/02477fe7-e13d-4443-be31-a3dcd2d3d19c" alt="Stepover Calculation">
-    </div>
-
-    <!-- Design for Manufacturing Section -->
-    <div class="readme-container">
-      <h2>Design for Manufacturing</h2>
-      <p>
-        I also learned how to design components for manufacturability, including proper tolerancing and material selection based on the specific machining processes.
-      </p>
     </div>
   </div>
+
+  <script>
+    function switchTab(tabName) {
+      // Hide all tab content
+      document.querySelectorAll('.tab-content').forEach(tabContent => {
+        tabContent.classList.remove('active');
+      });
+
+      // Show the selected tab content
+      document.getElementById(tabName).classList.add('active');
+
+      // Update tab styles
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
+    }
+  </script>
 </body>
 </html>
