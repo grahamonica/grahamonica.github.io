@@ -1,7 +1,7 @@
 /* General Styles */
 body {
-    background-color: #13192c;
-    color: #13192c;           /* Dark text for legibility */
+    background-color: #9eadbb;
+    color: #000206;           /* Dark text for legibility */
     font-family: 'Inter', sans-serif;
     margin-top: 50px;
     padding: 20px;
@@ -10,7 +10,7 @@ body {
 .container {
     max-width: 85%;
     margin: auto;
-    background: #efede7; /* Soft muted blue */
+    background: #f7f6f3; /* Soft muted blue */
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(43, 78, 140, 0.15); /* Subtle blue-ish shadow */
@@ -44,7 +44,7 @@ body {
 
 .bio-background {
     padding: 30px;
-    background-color: #d8dae0; /* Light background for bio */
+   
     border-radius: 12px;
 }
 
