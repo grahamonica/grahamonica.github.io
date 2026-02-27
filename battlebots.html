@@ -5,137 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Combat Robotics</title>
   <link rel="stylesheet" href="styles.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    /* Page-Specific Styles */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 20px; /* Spacing between buttons */
-      margin-bottom: 20px;
-    }
-
-    .back-link,
-    .github-link {
-      text-decoration: none;
-      color: #2B4E8C; /* Muted darker blue */
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .back-link:hover,
-    .github-link:hover {
-      color: #1C3B6E; /* Darker hover state */
-    }
-
-    .bio {
-      background: #d8dae0; /* Slightly darker container for contrast */
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-
-    .readme-container {
-      background-color: #d8dae0; /* Same darker background as .bio */
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .readme-container h1,
-    .readme-container h2,
-    .readme-container h3 {
-      color: #221f1f; /* Dark text for headings */
-    }
-
-    .screenshot-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
-      gap: 15px; /* Space between images */
-      margin-top: 20px;
-    }
-
-    .screenshot-grid img {
-      width: 100%; /* Ensure images fill their grid cells */
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .readme-container ul {
-      padding-left: 20px;
-    }
-
-    .readme-container ul li {
-      margin-bottom: 10px;
-    }
-
-    /* Machining Experience Image */
-    .machining-experience {
-      display: flex;
-      align-items: center;
-      gap: 20px; /* Space between image and text */
-    }
-
-    .machining-experience img {
-      width: 40%; /* Smaller image */
-      height: auto;
-      border-radius: 8px;
-    }
-
-    /* Tab Styles */
-    .tab-container {
-      display: flex;
-      margin-bottom: 20px;
-    }
-
-    .tab {
-      padding: 10px 20px;
-      cursor: pointer;
-      background-color: #d8dae0;
-      border-radius: 8px 8px 0 0;
-      margin-right: 5px;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .tab.active {
-      background-color: #efede7;
-    }
-
-    .tab-content {
-      display: none;
-      background-color: #efede7;
-      padding: 20px;
-      border-radius: 0 8px 8px 8px;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-    .bio-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
-        .bio-text {
-            flex: 1;
-        }
-        .bio-video {
-            flex: 1;
-        }
-        .bio-video iframe {
-            width: 100%;
-            height: 400px;
-        }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="container">
@@ -192,7 +62,7 @@
           Throughout my time in Robojackets I learned how to rapidly prototype new ideas, and design them in a way that they can be easily manufactured. Recently, I worked with one other person to create an approximately 0.25x scale prototype of our next 18 lb robot, (major adjustments had to be made because some parts such as motors do not scale proportionately). In this project, I designed the chasis and armor system, and my teammate designed the weapon and shuffler system. To help him optimize the parameters for the shuffler design, I created a python simulation which is shown in the software engineering tab on this page. I also learned how to design components for manufacturability, including proper tolerancing and material selection based on the specific machining processes.
         </p>
         <div class="bio-video">
-          <iframe src="https://www.youtube.com/embed/socwpIm9m4Y" allowfullscreen width: 80%></iframe>
+          <iframe class="responsive-video" src="https://www.youtube.com/embed/socwpIm9m4Y" allowfullscreen></iframe>
       </div>
       </div>
     </div>
@@ -216,7 +86,6 @@
         <h3>Simulation Parameters</h3>
         <img
           class="responsive-img"
-          style="width: 80%; display: block; margin: 0 auto;"
           src="https://github.com/user-attachments/assets/c4424ba4-1e38-4418-87b5-3e24e666c7cd"
           alt="Simulation Parameters"
         >
