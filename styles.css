@@ -228,15 +228,16 @@ body.home .profile-section {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  column-gap: 32px;
+  row-gap: 72px;
   margin-top: 28px;
 }
 
 .grid-item {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   align-items: flex-start;
   text-align: left;
   transition: transform 0.2s ease;
@@ -251,7 +252,7 @@ body.home .profile-section {
 }
 
 .grid-item span {
-  font-size: 0.95rem;
+  font-size: 1.18rem;
   font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: none;
@@ -449,10 +450,6 @@ body.home .profile-section {
     white-space: normal;
   }
 
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  }
-
   .profile-links {
     justify-content: center;
   }
@@ -489,10 +486,6 @@ body.home .profile-section {
   .back-link {
     width: 100%;
     justify-content: center;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 
   .media-40,

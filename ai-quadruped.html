@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Quadruped</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="index.html" class="github-link">Back to Portfolio</a>
+      <a
+        href="https://github.com/grahamonica/AI_quadraped"
+        class="github-link"
+        target="_blank"
+      >
+        View on GitHub
+      </a>
+    </div>
+    <hr />
+
+    <h1>AI Quadruped</h1>
+
+    <div class="bio">
+      <p>
+        <strong>AI Quadruped</strong> is a robotics visualization and training project that pairs a React interface with a live Python runtime for quadruped locomotion. The app separates the heavy simulation, brain visualization, and training workflows into distinct pages so the system stays responsive while still exposing the full stack.
+      </p>
+    </div>
+
+    <img src="images/quadrapedai.png" alt="AI Quadruped project preview" class="responsive-img" />
+
+    <div class="tab-container">
+      <div class="tab active" onclick="switchTab('overview')">Overview</div>
+      <div class="tab" onclick="switchTab('stack')">Runtime + Training</div>
+      <div class="tab" onclick="switchTab('details')">Technical Details</div>
+    </div>
+
+    <div id="overview" class="tab-content active">
+      <div class="readme-container">
+        <h2>What the app does</h2>
+        <p>
+          The project is structured around four focused views: an overview page, a 3D simulation page, a stylized dog-brain activity page, and a training page for the Python model. That split keeps the first page lightweight while still supporting live visualization and development workflows.
+        </p>
+        <p>
+          The simulation view renders the quadruped in 3D with mouse orbit controls and exposes body height, pitch, roll, and movement state. The brain page visualizes biologically named regions as active nodes inside a stylized canine brain form.
+        </p>
+      </div>
+    </div>
+
+    <div id="stack" class="tab-content">
+      <div class="readme-container">
+        <h2>Runtime and training stack</h2>
+        <p>
+          The frontend is a Vite + React viewer, while the live control logic runs in Python inside the <strong>biobrain</strong> package. The frontend polls the Python runtime instead of owning the locomotion logic directly, which keeps the browser focused on visualization and interaction.
+        </p>
+        <p>
+          For training, the repo includes a Python entrypoint for GPU warm-start experiments. Checkpoints are written to <strong>artifacts/models/biological_brain_latest.pt</strong>, which makes it easy to iterate on architecture and save progress without coupling that workflow to the UI.
+        </p>
+        <p>
+          Inside the model, the control stack is broken into small region-inspired subnetworks. Sensory and occipital encoders process body, leg, goal, and vision signals; parietal layers build a body schema; the hypothalamus estimates internal regulation pressure; and the amygdala converts those signals into a threat or salience representation.
+        </p>
+        <p>
+          After that, a thalamic gate filters the combined sensory stream before temporal and hippocampal memory modules carry short-term pattern history and goal-linked spatial context forward into the frontal planner. That planner proposes intent, the midbrain biases orienting behavior, and the basal ganglia selects locomotion programs such as walk, trot, cautious motion, or recovery.
+        </p>
+      </div>
+    </div>
+
+    <div id="details" class="tab-content">
+      <div class="readme-container">
+        <h2>Technical highlights</h2>
+        <ul>
+          <li>The simulator models explicit 3D body state, flat-floor collision, gravity, frictional foot-floor contact, and fixed-length one-DOF legs.</li>
+          <li>The project includes a non-WebGL fallback for the 3D pages, so the simulation and brain views still render in browsers with broken or disabled WebGL.</li>
+          <li>The runtime behavior, reward shaping, physics constants, and brain-to-gait wiring are concentrated in the Python runtime so the control loop can evolve independently from the UI.</li>
+          <li>The cerebellar module refines leg coordination using planner state, leg state, and the selected action, while the brainstem contributes faster reflex-style corrections when threat or instability rises.</li>
+          <li>A spinal central-pattern-generator head merges planner intent, orienting signals, arousal, cerebellar correction, reflex output, and action selection into final motor commands for the quadruped.</li>
+          <li>The repo directory is named <strong>AI_quadraped</strong>, while the project itself uses the standard spelling <strong>AI Quadruped</strong> in the interface and documentation.</li>
+        </ul>
+        <p>
+          In practice, those subnetworks work as a layered loop: perception and internal-state modules estimate what the robot is experiencing, memory and planning modules decide what matters next, and lower-level motor modules turn that intent into stable gait commands with both corrective and reflexive pathways.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(tabContent => {
+        tabContent.classList.remove('active');
+      });
+
+      document.getElementById(tabName).classList.add('active');
+
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
