@@ -25,7 +25,7 @@
 
     <div class="bio">
       <p>
-        <strong>AI Quadruped</strong> is a robotics visualization and training project that pairs a React interface with a live Python runtime for quadruped locomotion. The app separates the heavy simulation, brain visualization, and training workflows into distinct pages so the system stays responsive while still exposing the full stack.
+        A simulation and training environment for a quadruped robot, pairing a physics-based world model with a spiking neural network brain. The goal is to develop a bio-inspired controller that can explore and learn from its environment — and eventually transfer to real hardware.
       </p>
     </div>
 
@@ -33,54 +33,89 @@
 
     <div class="tab-container">
       <div class="tab active" onclick="switchTab('overview')">Overview</div>
-      <div class="tab" onclick="switchTab('stack')">Runtime + Training</div>
-      <div class="tab" onclick="switchTab('details')">Technical Details</div>
+      <div class="tab" onclick="switchTab('simulation')">Simulation</div>
+      <div class="tab" onclick="switchTab('snn')">Neural Network</div>
+      <div class="tab" onclick="switchTab('display')">Display</div>
+      <div class="tab" onclick="switchTab('nextsteps')">Next Steps</div>
     </div>
 
     <div id="overview" class="tab-content active">
       <div class="readme-container">
-        <h2>What the app does</h2>
+        <h2>Overview</h2>
         <p>
-          The project is structured around four focused views: an overview page, a 3D simulation page, a stylized dog-brain activity page, and a training page for the Python model. That split keeps the first page lightweight while still supporting live visualization and development workflows.
+          I was perusing robots online and came across the KT2 Kungfu Turtle. I was inspired by its capabilities and physical simplicity.
         </p>
+        <img src="images/f6f6f250ba764d943795bb2196d128eb_original.jpg.avif" alt="KT2 Kungfu Turtle" class="responsive-img" />
         <p>
-          The simulation view renders the quadruped in 3D with mouse orbit controls and exposes body height, pitch, roll, and movement state. The brain page visualizes biologically named regions as active nodes inside a stylized canine brain form.
-        </p>
-      </div>
-    </div>
-
-    <div id="stack" class="tab-content">
-      <div class="readme-container">
-        <h2>Runtime and training stack</h2>
-        <p>
-          The frontend is a Vite + React viewer, while the live control logic runs in Python inside the <strong>biobrain</strong> package. The frontend polls the Python runtime instead of owning the locomotion logic directly, which keeps the browser focused on visualization and interaction.
-        </p>
-        <p>
-          For training, the repo includes a Python entrypoint for GPU warm-start experiments. Checkpoints are written to <strong>artifacts/models/biological_brain_latest.pt</strong>, which makes it easy to iterate on architecture and save progress without coupling that workflow to the UI.
-        </p>
-        <p>
-          Inside the model, the control stack is broken into small region-inspired subnetworks. Sensory and occipital encoders process body, leg, goal, and vision signals; parietal layers build a body schema; the hypothalamus estimates internal regulation pressure; and the amygdala converts those signals into a threat or salience representation.
-        </p>
-        <p>
-          After that, a thalamic gate filters the combined sensory stream before temporal and hippocampal memory modules carry short-term pattern history and goal-linked spatial context forward into the frontal planner. That planner proposes intent, the midbrain biases orienting behavior, and the basal ganglia selects locomotion programs such as walk, trot, cautious motion, or recovery.
+          This, I decided, would form the foundation of my next project. My goal was to use it as a kit to train and test neural networks. I have been toying with different models to understand them better, optimize performance, and explore novel ways of the robot learning about its environment.
         </p>
       </div>
     </div>
 
-    <div id="details" class="tab-content">
+    <div id="simulation" class="tab-content">
       <div class="readme-container">
-        <h2>Technical highlights</h2>
+        <h2>Simulation and Modeling</h2>
+        <p>
+          I started by creating a physical simulation of this robot. I modeled the body as a rectangular prism and the legs as cylinders with spherical tips for feet. The body was modeled to be slightly elastically deformable in order to avoid negligible surface areas for floor contact.
+        </p>
+        <p>
+          I made the legs each have &frac14; of the mass of the body, and set the center of mass of each component to their respective centroids. I then set coefficients of static and dynamic friction between the bot and the floor of our arena to capture the dynamics of the bot moving across the floor.
+        </p>
+        <p>
+          I added gravity to the system and allowed the motors to control the legs. I modeled each component's forces relative to each other and to the environment, so that spinning the motors that control the legs will accelerate the robot.
+        </p>
+      </div>
+    </div>
+
+    <div id="snn" class="tab-content">
+      <div class="readme-container">
+        <h2>Spiking Neural Network Approach</h2>
+        <p>
+          My goal for this robot is to develop a bio-inspired brain that can explore and learn from its environment. Eventually I plan to have a larger series of coordinated neural networks that represent and perform functions similarly to the regions in a dog's brain.
+        </p>
+        <p>
+          Phase one of this involved developing a four-layer spiking neural network with a shared trunk. This allows each of the motors to function independently while coordinating with the other motors for coherent movement.
+        </p>
+        <p>
+          I designed this so it can either be trained headlessly (very slowly) locally, or much more rapidly with Nvidia H100 GPUs that I rent from Runpod when I want to iterate faster.
+        </p>
+      </div>
+    </div>
+
+    <div id="display" class="tab-content">
+      <div class="readme-container">
+        <h2>Display</h2>
+        <p>
+          The frontend is a React viewer. It can visualize either your current best model solo, which is being rewarded for navigation towards a given point:
+        </p>
+        <img src="images/image-5.png" alt="Best model solo navigation" class="responsive-img" />
+        <img src="images/image-6.png" alt="Quadruped solo view" class="responsive-img" />
+        <p>
+          Or you can watch the entire swarm train, with a simplified UI for rendering purposes:
+        </p>
+        <img src="images/quadruped_swarm.png" alt="Swarm training view" class="responsive-img" />
+      </div>
+    </div>
+
+    <div id="nextsteps" class="tab-content">
+      <div class="readme-container">
+        <h2>Next Steps</h2>
+
+        <h3>Mechanical</h3>
+        <p>
+          I have reached out to the people who created the KT2 Kungfu Turtle to inquire about the capabilities of its microcontroller. Depending on what I learn, I will either buy one of their robots, or build my own that is similar, slightly larger, and runs on a Raspberry Pi (with a hat).
+        </p>
+        <p>
+          Although I tried to simulate the world accurately, my "robot brain" is tested and trained on an environment that does not perfectly mimic all of the complexities that come with navigating real-world surroundings. I am eager to test my work on hardware to learn from these differences and identify where I need to update my model to better mirror the real world.
+        </p>
+
+        <h3>Software</h3>
+        <p>I have a handful of ideas I want to play with and test out in the future:</p>
         <ul>
-          <li>The simulator models explicit 3D body state, flat-floor collision, gravity, frictional foot-floor contact, and fixed-length one-DOF legs.</li>
-          <li>The project includes a non-WebGL fallback for the 3D pages, so the simulation and brain views still render in browsers with broken or disabled WebGL.</li>
-          <li>The runtime behavior, reward shaping, physics constants, and brain-to-gait wiring are concentrated in the Python runtime so the control loop can evolve independently from the UI.</li>
-          <li>The cerebellar module refines leg coordination using planner state, leg state, and the selected action, while the brainstem contributes faster reflex-style corrections when threat or instability rises.</li>
-          <li>A spinal central-pattern-generator head merges planner intent, orienting signals, arousal, cerebellar correction, reflex output, and action selection into final motor commands for the quadruped.</li>
-          <li>The repo directory is named <strong>AI_quadraped</strong>, while the project itself uses the standard spelling <strong>AI Quadruped</strong> in the interface and documentation.</li>
+          <li>I want to hardwire a handful of capabilities into separate functions (e.g. run, trot, roll over, etc.), then add a task selection layer and train a model to navigate simple obstacle courses.</li>
+          <li>I want to have separate interconnected networks representing different regions of a dog's brain that control the bot instead of one network. I would likely use a variation of my current model as the motor cortex.</li>
+          <li>I want to test existing models on versions of quadrupeds with similar but varied parameters (e.g. super short legs, a more springy material, etc.) to learn how dependent my model is on this specific robot, or if it could be useful for a wider range of applications.</li>
         </ul>
-        <p>
-          In practice, those subnetworks work as a layered loop: perception and internal-state modules estimate what the robot is experiencing, memory and planning modules decide what matters next, and lower-level motor modules turn that intent into stable gait commands with both corrective and reflexive pathways.
-        </p>
       </div>
     </div>
   </div>
