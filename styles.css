@@ -251,6 +251,26 @@ body.home .profile-section {
   box-shadow: var(--shadow-soft);
 }
 
+.grid-split {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.grid-split img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: unset;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .grid-item span {
   font-size: 1.18rem;
   font-weight: 300;
