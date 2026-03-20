@@ -410,6 +410,29 @@ body.home .profile-section {
   box-shadow: var(--shadow-soft);
 }
 
+.side-by-side {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 0 auto 36px;
+  width: min(900px, 100%);
+}
+
+.side-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .side-by-side {
+    grid-template-columns: 1fr;
+  }
+}
+
 .media-40,
 .media-50 {
   display: inline-block;
