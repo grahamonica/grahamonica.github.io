@@ -479,6 +479,15 @@ body.home .profile-section {
   box-shadow: var(--shadow-soft);
 }
 
+.responsive-embed {
+  width: 100%;
+  height: clamp(420px, 70vh, 900px);
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
+  box-shadow: var(--shadow-soft);
+}
+
 @media (max-width: 900px) {
   .profile-section {
     grid-template-columns: 1fr;
